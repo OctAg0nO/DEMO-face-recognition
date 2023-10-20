@@ -28,10 +28,44 @@ Three main steps:
 3. Querying our Database
 
 #### 1. Weaviate Database Setup
-The test data, we have for populating the database contains 5 generated images of people. Each person will have three properties: `filename`, `image`, and `name`. These properties are hence defined in the schema, which is the structure for storing data in Weaviate. Schema is initialized by either running `create_schema.py` or `create_schema.sh`.  
+The test data, we have for populating the database contains 5 generated images of people. Each person will have three properties: `filename`, `image`, and `name`. These properties are hence defined in the schema, which is the structure for storing data in Weaviate. Schema is initialized by either running `./import/python/create_schema.py` or `./import/curl/create_schema.sh`.  
 
 Here’s the schema for this application:
-![create_schema](./images/create_schema.jpg)
+```Python
+def create_schema(client: weaviate.Client):
+  class_obj = {
+    "class": "FaceRecognition",
+    "moduleConfig": {
+        "img2vec-neural": {
+            "imageFields": [
+                "image"
+            ]
+        }
+    },
+    "vectorIndexType": "hnsw",
+    "vectorizer": "img2vec-neural",
+    "properties": [
+      {
+        "dataType": [
+          "string"
+        ],
+        "name": "filename"
+      },
+      {
+        "dataType": [
+            "blob"
+        ],
+        "name": "image"
+      },
+      {
+        "dataType": [
+          "string"
+        ],
+        "name": "name"
+      }
+    ]
+  }
+```
 
 Note that the Image files are first converted to Base64 encoding, before uploading to the Database. 
 #### 2. Image Vectorization
