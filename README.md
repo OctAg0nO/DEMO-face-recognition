@@ -6,7 +6,7 @@ This project's origin is [here](https://github.com/weaviate/weaviate-examples/t
 
 This example application spins up a Weaviate instance using the [img2vec-neural](https://github.com/semi-technologies/i2v-pytorch-models) module, imports a few sample images (you can add your own images, too!) and provides a very simple search frontend in [React](https://reactjs.org/) using the [Weaviate JS Client](https://www.semi.technology/developers/weaviate/current/client-libraries/javascript.html)
 
-(TO DO: Add demo video)
+https://github.com/Mukilan-Krishnakumar/DEMO-face-recognition/assets/71809485/76fcfbb2-4f50-484b-8708-7dc24b4bd390
 
 ### [Used technology stack](https://github.com/weaviate-tutorials/DEMO-face-recognition#used-technology-stack)
 
